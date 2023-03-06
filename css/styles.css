@@ -568,7 +568,7 @@ button {
 .portfolio-link {
   display: block;
   transition-property: box-shadow;
-  transition-duration: 2500ms;
+  transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
 }
 .portfolio-link:hover .overlay,
@@ -630,7 +630,7 @@ button {
 
   width: 408px;
   height: 576px;
-  padding: 24px;
+  padding: 74px 24px 24px;
   background-color: var(--background-color);
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -644,38 +644,25 @@ button {
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  top: 8px;
+  top: 24px;
   right: 24px;
   padding: 0;
   background-color: var(--subtle-background-color);
-  stroke: var(--primary-text-color);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
-  transition-property: fill, background-color, stroke;
+  transition-property: fill, background-color;
   transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
 }
 
-.modal-close-icon {
-  background-color: var(--subtle-background-color);
-  fill: var(--primary-text-color);
-  stroke: var(--primary-text-color);
-}
-
 .modal-close-button:hover,
 .modal-close-button:focus {
+  fill: var(--background-color);
   background-color: var(--accent-color);
-  fill: var(--accent-color);
-  stroke: var(--background-color);
 }
 
-.modal-close-button:hover .modal-close-icon,
-.modal-close-button:focus .modal-close-icon {
-  background-color: var(--accent-color);
-  fill: var(--background-color);
-}
 .backdrop.is-hidden {
   opacity: 0;
   visibility: hidden;
@@ -683,10 +670,8 @@ button {
 }
 
 .modal-text {
-  margin-top: 24px;
   margin-bottom: 16px;
   color: var(--headings-color);
-  font-family: 'Roboto';
   font-weight: 500;
   line-height: 1.5;
   text-align: center;
@@ -696,9 +681,9 @@ button {
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-bottom: 8px;
 }
 .modal-field {
-  margin-top: 8px;
   margin-bottom: 4px;
   font-weight: 400;
   font-size: 12px;
@@ -708,40 +693,40 @@ button {
 }
 .modal-field-input {
   transition-property: border-color;
-  transition-duration: 2500ms;
+  transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
 
   padding-left: 38px;
+  width: 100%;
   height: 40px;
   border: 1px solid var(--comment-border-color);
   border-radius: 4px;
+}
+.modal-field-icon {
+  display: block;
+  position: absolute;
+  top: 26px;
+  left: 16px;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
 }
 .modal-field-input:focus {
   outline: none;
   border-color: var(--brand-color);
 }
 .modal-field-input:focus + .modal-field-icon {
+  outline: none;
   fill: var(--brand-color);
 }
 
-.modal-field-icon {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  transform: translateY(-50%, -50%);
-  transition-property: fill;
-  transition-duration: 2500ms;
-  transition-timing-function: var(--timing-function);
-}
 .comment {
   transition-property: color, border-color;
-  transition-duration: 2500ms;
+  transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
 
   width: 100%;
-  height: 124px;
-  margin-bottom: 10px;
+  height: 120px;
   padding: 6px 16px;
 
   color: var(--comment-input-color);
@@ -758,7 +743,9 @@ button {
   border-color: var(--brand-color);
   color: var(--primary-text-color);
 }
-
+.container-textarea {
+  margin-bottom: 16px;
+}
 .modal-checkbox-field::before {
   display: block;
   content: '';
@@ -768,7 +755,14 @@ button {
   border-radius: 2px;
   cursor: pointer;
 }
-.modal-field-input:checked,
+.modal-field-input:checked + .modal-checkbox-field::before {
+  background-image: url(../images/icons/Vector.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  block-size: contain;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
 .modal-field-input:focus + .modal-checkbox-field::before {
   background-image: url(../images/icons/Vector.svg);
   background-repeat: no-repeat;
@@ -777,15 +771,18 @@ button {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
 }
+
 .modal-checkbox-field {
   display: flex;
   gap: 8px;
-  margin-bottom: 24px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
   letter-spacing: 0.04em;
   color: var(--checkbox-color-text);
+}
+.user-policy {
+  margin-bottom: 24px;
 }
 .user-policy-link {
   color: var(--brand-color);
